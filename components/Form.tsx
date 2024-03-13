@@ -4,55 +4,7 @@ import { useState } from 'react'
 
 
 export default function Form({ excuse, setExcuse, submitting, handleSubmit, register, errors }: formProps) {
-    // const [selectedImage, setSelectedImage] = useState();
-
-    // const imageChange = (e: any) => {
-    //     setExcuse({
-    //         ...post, file: e.target.files[0]
-    //     })
-    //     setSelectedImage(e.target.files[0]);
-    // };
-
-    // const inputArr = [
-    //     {
-    //         type: "text",
-    //         id: 1,
-    //         value: ""
-    //     }
-    // ];
-
-    // const [arr, setArr] = useState(inputArr);
-
-    // const addInput = () => {
-    //     setArr((s: any) => {
-    //         const lastId = s[s.length - 1].id;
-    //         return [
-    //             ...s,
-    //             {
-    //                 type: "text",
-    //                 value: ""
-    //             }
-    //         ];
-    //     });
-    // };
-
-    // const handleChange = (e: any) => {
-    //     e.preventDefault();
-
-    //     const index = e.target.id;
-    //     setArr(s => {
-    //         const newArr = s.slice();
-    //         newArr[index].value = e.target.value;
-
-    //         post.ingredients = newArr;
-    //         return post.ingredients;
-    //     });
-    // };
-
-    // const removeSelectedImage = () => {
-    //     setSelectedImage(undefined);
-    // };
-    console.log("submitting bool", submitting);
+ 
 
     function errorHandler(errorInput: any, minNum: number, maxNum: number) {
         return (
@@ -72,6 +24,7 @@ export default function Form({ excuse, setExcuse, submitting, handleSubmit, regi
 
 
     return (
+        
         <section className='w-full max-w-full flex-start flex-col'>
             <h1 className='head_text text-left'>
                 <span className='blue_gradient'>
@@ -117,7 +70,7 @@ export default function Form({ excuse, setExcuse, submitting, handleSubmit, regi
                     <textarea
                         value={excuse.message}
                         {...register("message", {
-                            required: true, minLength: 20, maxLength: 550, onChange: (e: any) => setExcuse({
+                            required: true, minLength: 1, maxLength: 200, onChange: (e: any) => setExcuse({
                                 ...excuse, message: e.target.value
                             })
                         })}
@@ -127,7 +80,7 @@ export default function Form({ excuse, setExcuse, submitting, handleSubmit, regi
                         required
                         className='form_textarea border border-gray-300'
                     ></textarea>
-                    {errorHandler(errors.recipe, 20, 550)}
+                    {errorHandler(errors.recipe, 5, 200)}
                 </label>
 
                 {/* Tag */}
@@ -153,9 +106,9 @@ export default function Form({ excuse, setExcuse, submitting, handleSubmit, regi
 
 
                 <div className='flex-end mx-3 mb-5 gap-4'>
-                    <Link href='/' className='text-gray-500 text-sm'>Annuler</Link>
-                    <button type='submit' disabled={submitting} className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'>
-                        {submitting ? `Créer...` : 'Créer'}
+    
+                    <button type='submit' disabled={submitting} className='px-5 py-1.5 text-sm bg-orange-600 rounded-full text-white'>
+                        {submitting ? `En cours...` : 'Valider'}
                     </button>
 
                 </div>

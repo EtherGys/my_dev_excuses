@@ -3,7 +3,7 @@ import { Schema, model, models } from "mongoose";
 
 const ExcuseSchema = new Schema({
 http_code: {
-    type: Number, 
+    type: String, 
     required: [true, "Le code http est obligatoire"],
 },
 tag: {

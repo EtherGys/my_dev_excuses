@@ -18,20 +18,12 @@ function newPage() {
         formState: { errors },
     } = useForm<excuseProps>();
 
-    async function createPost() {
 
-        // e.preventDefault();
-        setSubmitting(true);
-    
-    
-      }
 
     async function createExcuse() {
-        console.log("create post launched");
-
-        // e.preventDefault();
+     
         setSubmitting(true);
-  
+
         try {
             const response = await fetch('/api/excuse/new', {
                 method: 'POST',
@@ -40,7 +32,7 @@ function newPage() {
                     tag: excuse.tag,
                     message: excuse.message
                 })
-        })
+            })
 
             if (response.ok) {
                 router.push('/')
@@ -52,6 +44,9 @@ function newPage() {
             setSubmitting(false);
         }
     }
+
+
+
 
 
 
