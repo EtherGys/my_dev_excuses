@@ -1,0 +1,21 @@
+import { Schema, model, models } from "mongoose";
+
+
+const ExcuseSchema = new Schema({
+http_code: {
+    type: Number, 
+    required: [true, "Le code http est obligatoire"],
+},
+tag: {
+    type: String,
+    required: [true, "Le tag est obligatoire"],
+},
+message: {
+    type: String,
+    required: [true, "Le message est obligatoire"],
+}
+})
+
+const Excuse = models.Excuse || model("Excuse", ExcuseSchema);
+
+export default Excuse;
