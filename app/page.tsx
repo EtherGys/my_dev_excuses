@@ -58,7 +58,8 @@ export default function Home() {
   function getRandomIntForTimer(min: number, max: number) {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return 1000 * Math.floor(Math.random() * (max - min + 1)) + min;
+    var randomInt = Math.floor(Math.random() * (max - min + 1)) + min;
+    return 1000 * randomInt;
   }
 
 

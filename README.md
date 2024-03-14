@@ -8,7 +8,11 @@ _Le projet est également déployé sur Vercel : [https://my-dev-excuses.vercel.
 
 Cloner en local le repository avec la commande
 
-`git clone https://github.com/EtherGys/my_dev_excuses.git`
+```
+git clone https://github.com/EtherGys/my_dev_excuses.git
+```
+
+
 Installer toutes les dépendances nécessaires
 ``` 
 npm i 
@@ -17,12 +21,14 @@ npm install
 ```
 Créer un fichier .ENV à la racine du projet avec la variable d'environnement comme suit : 
 
-`MONGODB_URI=`
+`
+``MONGODB_URI=
+```
 
 La valeur de la variable d'environnement vous a été communiqué par mail.
 
 
-Ensuite, il faut build le projet avec
+Ensuite, vous pouvez build le projet avec
 ``` 
 npm run build
 # ou
@@ -30,7 +36,7 @@ yarn build
 ```
 
 
-Lancer le projet avec 
+Lancez le projet avec 
 ```
 npm run start
 # ou
