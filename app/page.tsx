@@ -90,9 +90,9 @@ export default function Home() {
 
   const getExcuse = async () => {
 
-    const id = setRandomNumber(0, allExcuses.length);
+    const index = setRandomNumber(0, allExcuses.length);
 
-    const randomExcuse = allExcuses[id]
+    const randomExcuse: any = allExcuses[index]
 
     setExcuse({
       http_code: randomExcuse.http_code,
