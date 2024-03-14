@@ -34,9 +34,7 @@ function newPage() {
                 })
             })
 
-            if (response.ok) {
-                router.push('/')
-            }
+            
         } catch (error) {
             console.log(error);
 

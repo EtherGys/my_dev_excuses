@@ -1,6 +1,6 @@
 import { Schema, model, models } from "mongoose";
 
-
+// Generates an excuse schema for the db
 const ExcuseSchema = new Schema({
 http_code: {
     type: String, 

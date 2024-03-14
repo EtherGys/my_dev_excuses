@@ -2,41 +2,21 @@ import { connectToDB } from "@/utils/database";
 import  {NextResponse, NextRequest} from "next/server"
 import Excuse from "@models/Excuse";
 
-
+// GET a specific document using url param
 export async function GET(req: NextRequest, {params}: DBProps) {
-
- 
-    
     try {
         await connectToDB();
         const excuse = await Excuse.findOne({
             http_code: params.code
         }).populate('http_code');
 
-        
         if (!excuse) {
             return new Response('Excuse not found', {status: 404})
         }
-        
         return new Response(JSON.stringify(excuse), {status: 200})
     } catch (error) {
         console.log(error);
         return new Response('Failed to fetch the excuse', {status: 500})
         
     }
-          // if http_code already exists
-    // if (err.code === 11000 && err.keyPattern.http_code) {
-    //     res.status(409).send({
-    //       message: 'this http_code already exists'
-    //     })
-    //   }
-    //   if message already exists
-    //   else if (err.code === 11000 && err.keyPattern.message) {
-    //     res.status(409).send({
-    //       message: 'this message already exists'
-    //     })
-    //   } else {
-    //     res.status(500).send(err)
-    //   }
-    // }
 }

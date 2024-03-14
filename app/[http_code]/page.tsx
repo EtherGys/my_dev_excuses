@@ -1,5 +1,5 @@
 "use client"
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 
 function dataPage() {
@@ -8,23 +8,30 @@ function dataPage() {
     tag: '',
     message: ''
   })
-  const searchParams = useSearchParams();
   const code = usePathname();
+  const router = useRouter();
 
-
+// Send GET method to API endpoint and handle error 404
   useEffect(() => {
     const getExcuseDetails = async () => {
-      const response = await fetch(`/api/excuse/703`)
-      const data = await response.json();
+      const response = await fetch(`/api/excuse/${code}`)
 
-      setExcuse(data);
+      if (!response.ok) {
+        router.push('/not-found');
+      } else {
+        const data = await response.json();
+        setExcuse(data);
+      }
     }
-    if (code) getExcuseDetails();
+    getExcuseDetails();
   }, [code])
-  console.log(code);
 
   return (
-    <div className='mx-10 min-h-screen flex flex-col'>
+    <main className="mx-10 min-h-screen flex flex-col">
+      <div className=" m-auto text-center">
+        {excuse.http_code === '' ?
+          <div>Loading ...</div> :
+          <>
             <h1 className='font-extrabold text-3xl'>
               Code http : {excuse.http_code}
             </h1>
@@ -34,7 +41,10 @@ function dataPage() {
             <h2>
               Tag : #{excuse.tag}
             </h2>
-    </div>
+          </>
+        }
+      </div>
+    </main>
   )
 }
 

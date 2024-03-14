@@ -1,6 +1,7 @@
 import React from 'react'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 
+// Sets a loader using the React Countdown Circle Timer
 function Timer() {
     return (
         <div className='ml-2'>
