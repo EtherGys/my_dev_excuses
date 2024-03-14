@@ -21,8 +21,8 @@ npm install
 ```
 Créer un fichier .ENV à la racine du projet avec la variable d'environnement comme suit : 
 
-`
-``MONGODB_URI=
+```
+MONGODB_URI=
 ```
 
 La valeur de la variable d'environnement vous a été communiqué par mail.
