@@ -15,7 +15,7 @@ export default function Home() {
     tag: '',
     message: '',
   })
-  const [allExcuses, setAllExcuses] = useState([])
+  const [allExcuses, setAllExcuses] = useState<[]>([])
 
   const [randomNumber, setRandomNumber] = useState<number>(0)
   const [timerNumber, setTimerNumber] = useState<number>(1000)
