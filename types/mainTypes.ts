@@ -1,6 +1,6 @@
 interface buttonProps {
     content: string
-    onClick: any
+    onClick: () => void
 }
 
 interface excuseProps {
@@ -11,9 +11,9 @@ interface excuseProps {
 }
 
 interface formProps {
-    excuse: any, 
+    excuse: excuseProps, 
     setExcuse: any, 
-    submitting: any, 
+    submitting: boolean, 
     handleSubmit: any,
     register: any,
     errors: any
@@ -21,4 +21,8 @@ interface formProps {
 
 interface DBProps {
     params: any
+}
+
+interface mainProps {
+    handleClick: () => void
 }
