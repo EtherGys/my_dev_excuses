@@ -57,7 +57,6 @@ function MainComponent({handleClick} : mainProps) {
         const index: number = getRandomNumber(0, allExcuses.length);
         const randomExcuse: any = allExcuses[index]
         setLoader(true);
-        console.log(randomTimer);
         
         setTimeout(() => {
             setLoader(false);
@@ -66,7 +65,7 @@ function MainComponent({handleClick} : mainProps) {
                 tag: randomExcuse.tag,
                 message: randomExcuse.message,
             });
-        }, randomTimer)
+        }, timerNumber)
     }
 
     return (

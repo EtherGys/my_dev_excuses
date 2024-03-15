@@ -1,7 +1,12 @@
 L'application [my_dev_excuses](https://github.com/EtherGys/my_dev_excuses) est un projet réalisé pour l'entrée à la ForEach Academy
 
 _Le projet est également déployé sur Vercel : [https://my-dev-excuses.vercel.app/](https://my-dev-excuses.vercel.app/)_
-## Lancer le projet avec localhost
+## Lancer le projet en localhost
+**Prérequis**
+Pour lancer le projet il faut disposer de : 
+Un gestionnaire de packages, npm ou yarn
+
+node version >= 18.17.0
 
 ### Les étapes pour pouvoir lancer le projet : 
 
@@ -12,14 +17,13 @@ Cloner en local le repository avec la commande
 git clone https://github.com/EtherGys/my_dev_excuses.git
 ```
 
-
-Installer toutes les dépendances nécessaires
+Descendre dans le projet et installer les dépendances nécessaires avec la commande
 ``` 
 npm i 
 # ou
 npm install
 ```
-Créer un fichier .ENV à la racine du projet avec la variable d'environnement comme suit : 
+Créer un fichier .env à la racine du projet avec la variable d'environnement comme suit : 
 
 ```
 MONGODB_URI=
@@ -60,3 +64,20 @@ Ouvrez ensuite  [http://localhost:3000](http://localhost:3000) dans votre naviga
 ## La base de données
 
 Ce projet utilise une base de données MongoDB, herbergée via MongoDB Atlas. Pour la durée de l'évaluation, la base de données accepte la connexion à partir de toute adresse ip, elle est donc également interrogeable via localhost.
+
+## Observations
+
+**La récurrence des codes http**
+
+Comme il n'est pas précisé dans l'énoncé que le code http d'un message est unique, il est donc possible en continuant d'ajouter des messages que plusieurs messages aient le même code http. Lors de l'accès à la page d'un message via la route /http_code, l'appel GET ne renverra que la première itération du code : la nouvelle entrée du code http ne sera donc pas accessible par la route /http_code, bien qu'elle reste accessible dans le tableau stockant tous les messages d'excuses.
+
+**L'usage du composant bouton pour fetch les données**
+
+Pour ce projet, le prérequis était que le composant bouton devait récupérer l'ensemble des données pour ensuite renvoyer la phrase aléatoire au composant parent (le composant principal).
+Cependant, la logique de l'application aurait voulu que ce soit le composant qui affiche qui récupère la donnée.
+Une autre architecure aurait donc voulu que le composant bouton possède uniquement une action on click, qui aurait été alimenté par le composant principal. Le composant bouton n'aurait donc pas touché aux données à proprement parlé, mais uniquement lancé l'action qui afficherait la phrase. 
+
+**L'utilisation d'une base de données**
+
+Pour ce projet, il n'est en réalité pas nécessaire d'utiliser une base de données pour stocker les données : un fichier json pourrait être utilisé pour stocker les données, auquel on pourrait ajouter des données par la suite.
+Cette solution aurait alors fonctionnée entièrement en local, avec un fichier json déjà existant lors du clonage du projet.

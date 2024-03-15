@@ -2,7 +2,7 @@ import { connectToDB } from "@/utils/database";
 import  {NextResponse, NextRequest} from "next/server"
 import Excuse from "@models/Excuse";
 
-
+// Get all excuses from the database
 export async function GET(req: NextRequest) {
     
     try {
@@ -11,6 +11,6 @@ export async function GET(req: NextRequest) {
         return new Response(JSON.stringify(excuse), {status: 200})
     } catch (error) {
         console.log(error);
-        return new Response('Failed to fetch all recipes', {status: 500})
+        return new Response('Failed to fetch all excuses', {status: 500})
     }
 }

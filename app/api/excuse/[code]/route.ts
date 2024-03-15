@@ -2,7 +2,7 @@ import { connectToDB } from "@/utils/database";
 import  {NextResponse, NextRequest} from "next/server"
 import Excuse from "@models/Excuse";
 
-// GET a specific document using url param
+// GET a specific excuse using url param
 export async function GET(req: NextRequest, {params}: DBProps) {
     try {
         await connectToDB();
