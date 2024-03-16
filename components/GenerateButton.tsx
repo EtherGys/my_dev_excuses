@@ -10,7 +10,6 @@ function GenerateButton({ setExcuse }: buttonProps) {
 
   const [loader, setLoader] = useState<boolean>(false);
 
-
   // Gets a random int to set the state of the loader timer
   function getRandomIntForTimer(min: number, max: number) {
     min = Math.ceil(min);
@@ -19,23 +18,18 @@ function GenerateButton({ setExcuse }: buttonProps) {
     return 1000 * randomInt;
   }
 
-
   // Gets a random int to pick an excuse, int is different on every instance
   function getRandomNumber(min: number, max: number) {
     min = Math.ceil(min);
     max = Math.floor(max);
-    var newRandom = Math.floor(Math.random() * max);
-    if (randomNumber === undefined) {
-      setRandomNumber(newRandom);
-      return randomNumber
-    }
-    do {
-      var newRandom = Math.floor(Math.random() * max);
-    } while (newRandom === randomNumber)
-    setRandomNumber(newRandom);
-    console.log('randomnumver', randomNumber);
-    return randomNumber;
+    var newRandom;
 
+    do {
+      newRandom = Math.floor(Math.random() * max);
+    } while (newRandom === randomNumber)
+
+    setRandomNumber(newRandom);
+    return newRandom
   }
 
   // Gets and manages the state of all excuses available
@@ -49,15 +43,12 @@ function GenerateButton({ setExcuse }: buttonProps) {
     fetchAllExcuses();
   }, [])
 
-
-
   // Load an excuse on click action
   const getExcuse = async () => {
     const randomTimer: number = getRandomIntForTimer(1, 5);
     setTimerNumber(randomTimer);
-    getRandomNumber(0, allExcuses.length);
-    console.log(getRandomNumber(0, allExcuses.length));
-    const randomExcuse: any = allExcuses[randomNumber];
+    const index: number = getRandomNumber(0, allExcuses.length);
+    const randomExcuse: any = allExcuses[index];
     setLoader(true);
     setTimeout(() => {
       setLoader(false);
