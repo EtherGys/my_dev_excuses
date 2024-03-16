@@ -54,6 +54,8 @@ npm run start
 yarn start
 ```
 **-> Si le port 3000 n'est pas disponible, vous pouvez choisir le port que vous souhaitez utiliser en modifiant le fichier package.json, ligne 8.**
+
+
 ![alt text](image.png)
 
 Ou bien, passer en mode développement avec 
