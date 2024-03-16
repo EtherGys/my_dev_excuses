@@ -57,8 +57,7 @@ function GenerateButton({ setExcuse }: buttonProps) {
     setTimerNumber(randomTimer);
     getRandomNumber(0, allExcuses.length);
     console.log(getRandomNumber(0, allExcuses.length));
-
-    const randomExcuse: any = allExcuses[randomNumber]
+    const randomExcuse: any = allExcuses[randomNumber];
     setLoader(true);
     setTimeout(() => {
       setLoader(false);
