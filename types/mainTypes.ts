@@ -1,6 +1,5 @@
 interface buttonProps {
-    content: string
-    onClick: () => void
+    setExcuse: any
 }
 
 interface excuseProps {
