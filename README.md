@@ -53,7 +53,7 @@ npm run start
 # ou
 yarn start
 ```
-
+**-> Si le port 3000 n'est pas disponible, vous pouvez choisir le port que vous souhaitez utiliser en modifier le fichier package.json, ligne 8.**
 
 Ou bien, passer en mode développement avec 
 ```
@@ -65,7 +65,7 @@ yarn dev
 Ouvrez ensuite  [http://localhost:3000](http://localhost:3000) dans votre navigateur pour voir le résultat.
 
 
-**Si le port 3000 n'est pas disponible, le projet sera lancé sur le prochain port disponible (3001, 3002, etc.). Consultez votre terminal pour savoir le port sur lequel le projet a été lancé**
+**-> Si le port 3000 n'est pas disponible, le projet sera lancé sur le prochain port disponible (3001, 3002, etc.). Consultez votre terminal pour savoir le port sur lequel le projet a été lancé**
 
 
 
