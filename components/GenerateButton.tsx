@@ -1,5 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
+import { RotatingLines } from 'react-loader-spinner'
 
 function GenerateButton({ setExcuse }: buttonProps) {
   const [allExcuses, setAllExcuses] = useState<[]>([])
@@ -34,7 +35,7 @@ function GenerateButton({ setExcuse }: buttonProps) {
     setRandomNumber(newRandom);
     console.log('randomnumver', randomNumber);
     return randomNumber;
-    
+
   }
 
   // Gets and manages the state of all excuses available
@@ -56,7 +57,7 @@ function GenerateButton({ setExcuse }: buttonProps) {
     setTimerNumber(randomTimer);
     getRandomNumber(0, allExcuses.length);
     console.log(getRandomNumber(0, allExcuses.length));
-    
+
     const randomExcuse: any = allExcuses[randomNumber]
     setLoader(true);
     setTimeout(() => {
@@ -71,7 +72,19 @@ function GenerateButton({ setExcuse }: buttonProps) {
 
   return (
     <button type="button" onClick={() => getExcuse()} className="w-60 focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-      {loader ? 'Loading...' : 'Générer une nouvelle excuse'}
+      {loader ?
+        <span className='flex flex-row justify-around'>
+          Loading
+          <RotatingLines
+            visible={true}
+            width="20"
+            strokeWidth="5"
+            strokeColor='yellow'
+            animationDuration="0.75"
+            ariaLabel="rotating-lines-loading"
+          />
+        </span> :
+        'Générer une nouvelle excuse'}
     </button>
   )
 }
