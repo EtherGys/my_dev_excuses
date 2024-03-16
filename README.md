@@ -10,7 +10,9 @@ _Le projet est également déployé sur Vercel : [https://my-dev-excuses.vercel.
 _Les commandes suivantes sont fonctionnelles avec Windows et Linux_
 
 **Prérequis**
+
 Pour lancer le projet il faut disposer de : 
+
 Un gestionnaire de packages, npm ou yarn
 
 node version >= 18.17.0
